@@ -15,6 +15,8 @@ data = [[8.1,0.380,0.28,2.1,0.066,13.0,30.0,0.9968,3.23,0.73,9.7,"Good"],[5.7,1.
 
 df = pd.DataFrame(data,columns=["Fixed acidity", "Volatile acidity", "Citric acid", "Residual sugar", "Chlorides", "Free sulfur dioxide", "Total sulfur dioxide", "Density", "pH", "Sulphates","Alcohol","Quality"])
 df.round({"Fixed acidity":1, "Volatile acidity":2, "Citric acid":1, "Residual sugar":1, "Chlorides":3, "Free sulfur dioxide":1, "Total sulfur dioxide":1, "Density":6, "pH":2, "Sulphates":2,"Alcohol":1})
+# Set the maximum column width to 100 characters
+pd.set_option('display.max_colwidth', 20)
 st.table(df)
 
 #st.write("Features:Fixed acidity; Volatile acidity; Citric acid; Residual sugar; chlorides; Free sulfur dioxide; Total sulfur dioxide; density; pH; sulphates")
