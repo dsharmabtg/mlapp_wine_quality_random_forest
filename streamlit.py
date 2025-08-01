@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 import joblib
 
 # Load the saved model and scaler
@@ -10,10 +11,17 @@ scaler = joblib.load("scaler.pkl")
 st.title("Wine Quality Predictor")
 st.write("Enter the details of the parameters to predict the wine quality:")
 st.write("Sample Data to test the Wine Quality")
-st.write("Features:Fixed acidity; Volatile acidity; Citric acid; Residual sugar; chlorides; Free sulfur dioxide; Total sulfur dioxide; density; pH; sulphates")
-st.write("Good Quality:8.1;	0.380;	0.28;	2.1;	0.066;	13.0;	30.0;	0.9968;	3.23;	0.73;	9.7")
-st.write("Bad Quality:5.7;	1.130;	0.09;	1.5;	0.172;	7.0;	19.0;	0.9940;	3.50;	0.48;	9.8")
-st.write("Average Quality:7.8;	0.600;	0.14;	2.4;	0.086;	3.0;	15.0;	0.9975;	3.42;	0.60;	10.8")
+data = [[8.1,	0.380,	0.28,	2.1,	0.066,	13.0,	30.0,	0.9968,	3.23,	0.73,	9.7, "Good"],
+        [5.7,	1.130,	0.09,	1.5,	0.172,	7.0,	19.0,	0.9940,	3.50,	0.48,	9.8, "Bad"],
+        [7.8,	0.600,	0.14,	2.4,	0.086,	3.0,	15.0,	0.9975,	3.42,	0.60,	10.8, "Average" ]]
+
+df = pd.DataFrame(data,columns=["Fixed acidity", "Volatile acidity", "Citric acid", "Residual sugar", "Chlorides", "Free sulfur dioxide", "Total sulfur dioxide", "Density", "pH", "Sulphates","Quality"])
+st.table(df)
+
+#st.write("Features:Fixed acidity; Volatile acidity; Citric acid; Residual sugar; chlorides; Free sulfur dioxide; Total sulfur dioxide; density; pH; sulphates")
+#st.write("Good Quality:8.1;	0.380;	0.28;	2.1;	0.066;	13.0;	30.0;	0.9968;	3.23;	0.73;	9.7")
+#st.write("Bad Quality:5.7;	1.130;	0.09;	1.5;	0.172;	7.0;	19.0;	0.9940;	3.50;	0.48;	9.8")
+#st.write("Average Quality:7.8;	0.600;	0.14;	2.4;	0.086;	3.0;	15.0;	0.9975;	3.42;	0.60;	10.8")
 # User input 
 fixed_acidity = st.number_input("Fixed acidity:",min_value=4.6,max_value=15.9)
 volatile_acidity = st.number_input("Volatile acidity:",min_value=0.12,max_value=1.58)
