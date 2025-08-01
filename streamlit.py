@@ -11,9 +11,7 @@ scaler = joblib.load("scaler.pkl")
 st.title("Wine Quality Predictor")
 st.write("Enter the details of the parameters to predict the wine quality:")
 st.write("Sample Data to test the Wine Quality")
-data = [[8.1,	0.380,	0.28,	2.1,	0.066,	13.0,	30.0,	0.9968,	3.23,	0.73,	9.7, "Good"],
-        [5.7,	1.130,	0.09,	1.5,	0.172,	7.0,	19.0,	0.9940,	3.50,	0.48,	9.8, "Bad"],
-        [7.8,	0.600,	0.14,	2.4,	0.086,	3.0,	15.0,	0.9975,	3.42,	0.60,	10.8, "Average" ]]
+data = [[8.1,0.380,0.28,2.1,0.066,13.0,30.0,0.9968,3.23,0.73,9.7,"Good"],[5.7,1.130,0.09,1.5,0.172,7.0,19.0,0.9940,3.50,0.48,9.8,"Bad"],[7.8,0.600,0.14,2.4,0.086,3.0,15.0,0.9975,3.42,0.60,10.8,"Average"]]
 
 df = pd.DataFrame(data,columns=["Fixed acidity", "Volatile acidity", "Citric acid", "Residual sugar", "Chlorides", "Free sulfur dioxide", "Total sulfur dioxide", "Density", "pH", "Sulphates","Quality"])
 st.table(df)
